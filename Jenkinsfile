@@ -21,6 +21,12 @@ pipeline{
             }
         }
 
-        // Add the "Deploy" stage here
+        stage ("Deploy") {
+		sh '''
+		  oc project steve-hillyer-greetings
+		  oc start-build greeting-service --follow --wait
+		'''
+
+	}
     }
 }
