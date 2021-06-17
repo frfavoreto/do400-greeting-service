@@ -22,11 +22,12 @@ pipeline{
         }
 
         stage ("Deploy") {
+	  steps {
 		sh '''
 		  oc project steve-hillyer-greetings
 		  oc start-build greeting-service --follow --wait
 		'''
-
+	  }
 	}
     }
 }
